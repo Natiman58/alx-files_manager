@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 const port = process.env.PORT || 5000;
-const router = require('./routes/index');
+const routes = require('./routes/index');
 
 // to handle url parsing(to extract pwd and email)
 // app.use(bodyParser.urlencoded({ extended: true }));---deprecated
@@ -12,7 +12,7 @@ const router = require('./routes/index');
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: false, limit: '20mb' }));
 
-app.use('/', router);
+app.use('/', routes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
