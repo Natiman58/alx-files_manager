@@ -6,7 +6,6 @@ const dbClient = require('../utils/db');
 class AuthController {
   static async getConnect(req, res) {
     const credentials = req.headers.authorization.split(' ')[1];
-    console.log(req.headers.authorization);
     const [email, password] = Buffer.from(credentials, 'base64').toString().split(':');
 
     if (!email) return res.status(400).json({ error: 'Missing email' });
